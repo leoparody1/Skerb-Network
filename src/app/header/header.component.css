@@ -1,0 +1,25 @@
+.title {
+  text-align: center;
+  margin: 0;
+}
+.site-name {
+  font-size: 37px;
+  line-height: 37px;
+  padding-bottom: 10px;
+  padding-top: 27px;
+}
+
+.pg-name {
+  font-size: 25px;
+  padding-top: 15px;
+
+}
+
+.divider {
+  max-height: 0;
+  border: 1px solid red;
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+
+}

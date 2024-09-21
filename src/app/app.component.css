@@ -1,0 +1,45 @@
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 150px 1fr 50px;
+  grid-template-areas: 
+  'header header'
+  'sidebar page'
+  'sidebar footer'
+  ;
+}
+
+.header {
+  grid-area: header;
+  background-color: #090909;
+  border-bottom: solid red 3px;
+  height: 150px;
+  max-height: 150px;
+  min-height: 150px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  max-height: calc(100vh - 150px);
+  background-color: #090909;
+  border-right: solid red 3px;
+  overflow-y: scroll;
+  width: 200px;
+}
+
+.page {
+  grid-area: page;
+  background-color: #090909;
+  border-bottom: solid red 3px;
+  overflow-y: scroll;
+  height: calc(100vh - 150px - 50px);
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #090909;
+  max-height: 50px;
+}
