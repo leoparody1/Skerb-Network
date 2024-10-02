@@ -1,6 +1,12 @@
-<p>sidebar works!</p>
-<h1 class="page-title"></h1>
-<ul class="index">
-  <a href="" class="link-itm"><li class="item">item 1</li></a>
-  <a href="" class="link-itm"><li class="item">item 2</li></a>
-</ul>
+<nav class="sidebar">
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <div><a [routerLink]="item.route">{{ item.title }}</a></div>
+      <ul *ngIf="item.subItems" class="submenu">
+        <li *ngFor="let subItem of item.subItems">
+          <div><a [routerLink]="subItem.route">{{ subItem.title }}</a></div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

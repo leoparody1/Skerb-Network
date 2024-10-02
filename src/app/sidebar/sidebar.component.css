@@ -1,0 +1,22 @@
+a { 
+  text-decoration: none;
+}
+a {
+  line-height: 50px;
+}
+
+div{
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-left: 10px;
+  line-height: 50px;
+  border-bottom: solid red 1px;
+}
+
+.submenu li {
+  display: none;
+}
+
+a:hover > .submenu li {
+  display: block
+}
