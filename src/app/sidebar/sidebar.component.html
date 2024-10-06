@@ -2,7 +2,7 @@
   <ul>
     <li *ngFor="let item of menuItems">
       <div><a [routerLink]="item.route">{{ item.title }}</a></div>
-      <ul *ngIf="item.subItems" class="submenu">
+      <ul *ngIf="expandedItem === item && item.subItems" class="submenu">
         <li *ngFor="let subItem of item.subItems">
           <div><a [routerLink]="subItem.route">{{ subItem.title }}</a></div>
         </li>

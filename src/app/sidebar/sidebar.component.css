@@ -3,6 +3,9 @@ a {
 }
 a {
   line-height: 50px;
+  display: block; /* Make links full-width for better click area */
+  padding: 8px 10px; /* Padding for better clickability */
+  cursor: pointer;
 }
 
 div{
