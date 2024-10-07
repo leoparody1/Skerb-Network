@@ -16,10 +16,10 @@ div{
   border-bottom: solid red 1px;
 }
 
-.submenu li {
-  display: none;
+li.expanded > ul.submenu {
+  display: block;
 }
 
-a:hover > .submenu li {
-  display: block
+li:not(.expanded) > ul.submenu {
+  display: none;
 }

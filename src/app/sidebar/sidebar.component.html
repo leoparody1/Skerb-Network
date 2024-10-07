@@ -1,8 +1,8 @@
 <nav class="sidebar">
   <ul>
-    <li *ngFor="let item of menuItems">
+    <li *ngFor="let item of menuItems" (click)="toggleSubMenu(item)">
       <div><a [routerLink]="item.route">{{ item.title }}</a></div>
-      <ul *ngIf="expandedItem === item && item.subItems" class="submenu">
+      <ul *ngIf="item.expanded && item.subItems" class="submenu">
         <li *ngFor="let subItem of item.subItems">
           <div><a [routerLink]="subItem.route">{{ subItem.title }}</a></div>
         </li>
