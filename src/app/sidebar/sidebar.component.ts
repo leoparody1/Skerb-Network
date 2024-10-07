@@ -1,8 +1,8 @@
-import { Component, OnInit. Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MenuItem } from '../sidebar';
+import { MenuItem } from '../sidebar'; // Import the updated MenuItem interface
 
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   constructor(private sidebarService: SidebarService) { }
 
   ngOnInit(): void {
-    this.menuItems = this.sidebarService.getMenuItems() as MenuItem[];
+    this.menuItems = this.sidebarService.getMenuItems() as unknown as MenuItem[];
     console.log(this.menuItems); // Check if menuItems is being populated correctly
   }
 

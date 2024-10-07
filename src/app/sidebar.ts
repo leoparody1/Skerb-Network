@@ -1,6 +1,7 @@
 export interface MenuItem {
-    title: string;
-    route: string;
-    subItems?: MenuItem[];
-    expanded?: boolean;
+  label: string;
+  icon: string;
+  route: string;
+  submenu?: MenuItem[];
+  isOpen?: boolean; // Add this property
 }

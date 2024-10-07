@@ -1,10 +1,10 @@
 <nav class="sidebar">
   <ul>
     <li *ngFor="let item of menuItems" (click)="toggleSubMenu(item)">
-      <div><a [routerLink]="item.route">{{ item.title }}</a></div>
-      <ul *ngIf="item.expanded && item.subItems" class="submenu">
-        <li *ngFor="let subItem of item.subItems">
-          <div><a [routerLink]="subItem.route">{{ subItem.title }}</a></div>
+      <div><a [routerLink]="item.route">{{ item.label }}</a></div>
+      <ul *ngIf="item.isOpen && item.submenu" class="submenu">
+        <li *ngFor="let subItem of item.submenu">
+          <div><a [routerLink]="subItem.route">{{ subItem.label }}</a></div>
         </li>
       </ul>
     </li>
