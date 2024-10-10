@@ -1,47 +1,36 @@
+// sidebar.service.ts
 import { Injectable } from '@angular/core';
+import { SidebarItem } from './sidebar-item';
 
-interface MenuItem {
-  title: string;
-  route?: string;
-  subItems?: MenuItem[]; // Submenus
-}
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SidebarService {
-  getMenuItems(): MenuItem[] {
-    // Implement the logic to retrieve the menu items from the backend or a data source
-    // For example, you can fetch the menu items from an API or a local data file
-    const menuItems: MenuItem[] = [
-      {
-        title: 'Item 1',
-        route: '/item1',
-        subItems: [
-          {
-            title: 'Subitem 1.1',
-            route: '/item1/subitem1.1'
-          },
-          {
-            title: 'Subitem 1.2',
-            route: '/item1/subitem1.2'
-          }
-        ]
-      },
-      {
-        title: 'Item 2',
-        route: '/item2',
-        subItems: [
-          {
-            title: 'Subitem 2.1',
-            route: '/item2/subitem2.1'
-          },
-          {
-            title: 'Subitem 2.2',
-            route: '/item2/subitem2.2'
-          }
-        ]
-      }
-    ];
-    return menuItems;
+  private sidebarItems: SidebarItem[] = [
+    {
+      title: 'Dashboard',
+      icon: 'dashboard_icon',
+      route: '/dashboard',
+    },
+    {
+      title: 'Settings',
+      icon: 'settings_icon',
+      submenu: [
+        { title: 'Profile', route: '/settings/profile' },
+        { title: 'Account', route: '/settings/account' },
+      ],
+    },
+    {
+      title: 'Reports',
+      icon: 'reports_icon',
+      submenu: [
+        { title: 'Sales', route: '/reports/sales' },
+        { title: 'Expenses', route: '/reports/expenses' },
+      ],
+    },
+  ];
+
+  getSidebarItems(): SidebarItem[] {
+    return this.sidebarItems;
   }
 }

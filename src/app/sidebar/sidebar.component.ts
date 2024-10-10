@@ -1,33 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SidebarItem } from '../sidebar-item';
 import { SidebarService } from '../sidebar.service';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MenuItem } from '../sidebar'; // Import the updated MenuItem interface
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent implements OnInit {
-  menuItems: MenuItem[] = [];
+export class SidebarComponent {
+  sidebarItems: SidebarItem[] = [];
+  activeSubmenus: { [key: number]: boolean } = {}; // To keep track of open submenus
 
-  constructor(private sidebarService: SidebarService) { }
-
-  ngOnInit(): void {
-    this.menuItems = this.sidebarService.getMenuItems() as unknown as MenuItem[];
-    console.log(this.menuItems); // Check if menuItems is being populated correctly
+  constructor(private sidebarService: SidebarService) {
+    this.sidebarItems = this.sidebarService.getSidebarItems();
   }
 
-  toggleSubMenu(item: MenuItem) {
-    // Implement the logic to toggle the submenu for the given item
-    // For example, you can find the item in the menuItems array and toggle its isOpen property
-    const foundItem = this.menuItems.find((i) => i.id === item.id);
-    if (foundItem) {
-      foundItem.isOpen = !foundItem.isOpen;
-    }
+  toggleSubmenu(index: number): void {
+    this.activeSubmenus[index] = !this.activeSubmenus[index];
   }
 
+  isSubmenuActive(index: number): boolean {
+    return !!this.activeSubmenus[index];
+  }
 }
